@@ -1,3 +1,4 @@
+{% set python_min = '3.10' %}
 {% set name = "sunkit-magex" %}
 {% set version = "1.1.0" %}
 
@@ -16,13 +17,13 @@ build:
 
 requirements:
   host:
-    - python >=3.10
+    - python {{ python_min }}
     - setuptools >=62.1
     - setuptools-scm >=6.2
     - wheel
     - pip
   run:
-    - python >=3.10
+    - python >={{ python_min }}
     - astropy >=5.2.0
     - numpy >=1.23.0
     - scikit-image >=0.19.0
@@ -45,6 +46,7 @@ test:
     - reproject
     - streamtracer
     - sympy
+    - python {{ python_min }}
 
 about:
   home: https://sunpy.org
