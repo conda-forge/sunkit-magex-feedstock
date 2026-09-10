@@ -1,14 +1,14 @@
-{% set python_min = '3.10' %}
+{% set python_min = "3.12" %}
 {% set name = "sunkit-magex" %}
-{% set version = "1.1.0" %}
+{% set version = "1.2.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/sunkit_magex-{{ version }}.tar.gz
-  sha256: 82e1d5259bdbb3c720e51a8d9dfa78cd9dced92b12d601c98c54e3ec8553999b
+  url: https://files.pythonhosted.org/packages/source/{{ name[0] }}/{{ name }}/sunkit_magex-{{ version }}.tar.gz
+  sha256: 4a86e92d92b4f34832445c7aed0e41c2d66a6f03132c8e233f4178dd3bbe260c
 
 build:
   noarch: python
@@ -19,17 +19,18 @@ requirements:
   host:
     - python {{ python_min }}
     - setuptools >=62.1
-    - setuptools-scm >=6.2
+    - setuptools-scm >=8.0.1
     - wheel
     - pip
   run:
     - python >={{ python_min }}
-    - astropy-base >=5.2.0
-    - numpy >=1.23.0
-    - scikit-image >=0.19.0
-    - scipy >=1.8.0,!=1.10.0
-    - sunpy >=5.1
-    - streamtracer >=1.0.0
+    - astropy-base >=6.1.0
+    - numpy >=1.26.0
+    - scikit-image >=0.22.0
+    - scipy >=1.12.0
+    - streamtracer >=2.2.0
+    - sunpy >=7.0
+    - matplotlib-base >=3.8.0
 
 test:
   imports:
